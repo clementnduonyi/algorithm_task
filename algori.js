@@ -1,3 +1,5 @@
+//PROBLEM NO 1 - conertFahrToCelcius 
+
 function checkType(data){
     const return_data = Object.prototype.toString.call(data);
     const type = return_data.substring(
@@ -7,18 +9,26 @@ function checkType(data){
 }
 
 function convertFahrToCelcius(fahr){
-    const c = (5/9 * (fahr-32));
+    let c = (5/9 * (fahr-32));
     
     let errorMessage = `${JSON.stringify(fahr)} is not a valid number but an/a ${checkType(fahr)}`;
+    let emptyStringError = `${JSON.stringify(fahr)} is not a valid number but an/a ${typeof(fahr)}`;
+
     if(isNaN(fahr)){
         console.log(errorMessage)
         return errorMessage;
+    }else if(fahr === ""){
+        console.log(emptyStringError)
+        return emptyStringError;
     }
     else{
-        return c.toFixed(4);
+        c = parseFloat(c.toFixed(4));
+        return c;
     }  
 }
 
+
+//PROBLEM NO 2 - checkYuGiOh
 const checkYuGiOh = (n) => {
     const arr = [];
     
